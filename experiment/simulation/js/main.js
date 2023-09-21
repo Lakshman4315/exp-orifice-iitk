@@ -28,13 +28,13 @@ var ml = document.getElementById("Mercury_Left")
 var timerSec = document.getElementById("timer-sec")
 var timerMS = document.getElementById("timer-ms")
 
-// var arrowRect = document.getElementById("arrow-rect")
-// var arrowPol = document.getElementById("arrow-pol")
+var arrowRect = document.getElementById("arrow-rect")
+var arrowPol = document.getElementById("arrow-pol")
 
 let shouldStop=false;
 
-// var svgContainer1 = document.getElementById("svg-container-1");
-// var svgElements1 = document.querySelectorAll(".arrow-1");
+var svgContainer1 = document.getElementById("svg-container-1");
+var svgElements1 = document.querySelectorAll(".arrow-1");
 
 var animationTimeouts = [];
 
@@ -478,7 +478,7 @@ function waterFlow14(){
                 manometerText.textContent = "210 mm Hg"
             }
 
-            document.getElementById("steps").innerHTML = "Take note of the manometer reading, and then close the purge valve using the purge valve button."
+            document.getElementById("steps").innerHTML = "Take note of the manometer reading, and then close the gate valve using the close gate valve button."
             purzeButton.disabled = false;
         }, 1000);
     // }
@@ -550,7 +550,8 @@ function waterTankSideFlow(y1,y2){
         y1 -= 1;
         y2-=1;
         // Use template literals to update the points attribute
-        waterTankLeft.setAttribute("points", `238.1,516.1 180.1,586.7 180.1,${y1} 237.7,${y2}`);
+        waterTankLeft.setAttribute("points", `245.1,516.1 190.1,586.7 190.1,${y1} 245.1,${y2}`);
+
         
         setTimeout(() => waterTankSideFlow(y1, y2), 32.9);
     }
@@ -581,9 +582,9 @@ function displayTimer(targetsec,targetms){
 
     if(valvePositioning.value==1){
         if(timerRunning){
-            milliseconds+=(11.428571428571429 * 8.75);
-            if(milliseconds == (1000)){
-                milliseconds = 0;
+            milliseconds+=(52*(5/28));
+            if(milliseconds >= (100)){
+                milliseconds -= 100;
                 seconds++;
                 if(seconds == 60){
                     seconds = 0;
@@ -592,14 +593,14 @@ function displayTimer(targetsec,targetms){
         }
         let s = seconds < 10 ? "0" + seconds : seconds;
         let ms = milliseconds < 10 ? "0" + milliseconds : milliseconds < 100 ? "" + milliseconds : milliseconds;
-        ms=ms/10
+        // ms=int(ms*10)
         timerSec.textContent = s;
-        timerMS.textContent = ms;
+        timerMS.textContent = parseInt(ms);
     }
 
     if(valvePositioning.value==2){
         if(timerRunning){
-            milliseconds+=(20*(5/27));
+            milliseconds+=(30*(5/23));
             if(milliseconds >= (100)){
                 milliseconds -= 100;
                 seconds++;
@@ -617,9 +618,9 @@ function displayTimer(targetsec,targetms){
 
     if(valvePositioning.value==3){
         if(timerRunning){
-            milliseconds+=(1000*(5/24));
-            if(milliseconds >= (1000)){
-                milliseconds -= 1000;
+            milliseconds+=(25*(5/20));
+            if(milliseconds >= (100)){
+                milliseconds -= 100;
                 seconds++;
                 if(seconds == 60){
                     seconds = 0;
@@ -628,7 +629,7 @@ function displayTimer(targetsec,targetms){
         }
         let s = seconds < 10 ? "0" + seconds : seconds;
         let ms = milliseconds < 10 ? "0" + milliseconds : milliseconds < 100 ? "" + milliseconds : milliseconds;
-        ms=parseInt(ms/10)
+        ms=parseInt(ms)
         timerSec.textContent = s;
         timerMS.textContent = ms;
     }
@@ -661,60 +662,62 @@ function purzeAction(){
     console.log("Value:", valvePositioning.value);
 
     if(valvePositioning.value==1){
-        timer(35,"00")
+        timer(28,91)
     }
     if(valvePositioning.value==2){
-        timer(27,74)
+        timer(23,89)
 
     }if(valvePositioning.value==3){
-        timer(24,"00")
+        timer(20,72)
     }
 
     fillTankFront()
     waterTankBackFlow(508.1)
     waterTankSideFlow(577.5,506.9)
+    valvePositioning.disabled= false
 
     arrowMovement()
-    // arrowMovement2(581.4, 587.4, 593.4 )
+    arrowMovement2(573.3,579.3,585.3 )
 }
 
 
 function updateValvePositioning()  {
     // stopAnimation()
-    // shouldStop=false
-    // displayArrows()
-    // reset()
-    // resetTimer()
+    shouldStop=false
+    displayArrows()
+    reset()
+    resetTimer()
     var selectedValue = valvePositioning.value;
     valvePositioningText.textContent = selectedValue;
     waterFlow5() 
     valvePositioning.disabled = true;
 }
 
-// function reset(){
-//     w6.style.opacity="0"
-//     w9.setAttribute("opacity","0")
-//     w8.setAttribute("opacity","0")
-
-//     w7.setAttribute("height","0")
-//     w10.setAttribute("height","0")
-//     w11.setAttribute("opacity","0")
-//     w9.setAttribute("height","0")
+function reset(){
+    w5.setAttribute("opacity","0")
+    // w6.style.opacity="0"
+    w9.setAttribute("height","0")
+    w8.setAttribute("opacity","0")
+    w6.setAttribute("height","0")
+    w7.setAttribute("height","0")
+    // w10.setAttribute("height","0")
+    // w11.setAttribute("opacity","0")
+    // w12.setAttribute("height","0")
     
-//     arrowRect.setAttribute("y","585.8")
-//     arrowPol.setAttribute("points","136.4,581.4 144.5,587.4 136.4,593.4 ")
-//     waterTankBack.setAttribute("points","238,516.2 580.8,516.2 580.8,516.2 238,516.2")
-//     waterTankFront.setAttribute("opacity","0")
-//     waterTankLeft.setAttribute("points","238,516.2 580.8,516.2 580.8,516.2 238,516.2")
-//     waterTankBase.setAttribute("opacity","0")
+    arrowRect.setAttribute("y","577.7")
+    arrowPol.setAttribute("points","143.5,573.3 151.6,579.3 143.5,585.3 ")
+    waterTankBack.setAttribute("points","245.1,508.1 587.9,508.1 587.9,508.1 245.1,508.1")
+    waterTankFront.setAttribute("opacity","0")
+    waterTankLeft.setAttribute("points","250.2,506.9 195.2,577.5 195.2,577.5 250.2,506.9")
+    waterTankBase.setAttribute("opacity","0")
 
-//     manometerText.textContent = "0 mm Hg"
-// }
+    manometerText.textContent = "0 mm Hg"
+}
 
 
 function arrowMovement(){
     var currentY = parseFloat(arrowRect.getAttribute("y"))
-    if (currentY > 475.8) {
+    if (currentY > 467.7) {
         currentY -= 1;
         arrowRect.setAttribute("y", currentY);
     
@@ -724,7 +727,7 @@ function arrowMovement(){
 
 function arrowMovement2(y1,y2,y3){
 
-    if (y1 > 471.74) {
+    if (y1 > 463.3) {
         y1 -= 1;
         y2-=1;
         y3-=1;
@@ -733,35 +736,3 @@ function arrowMovement2(y1,y2,y3){
     }
 
 }
-
-// function checkYourResult() {
-//     const table = document.getElementById("tab1");
-//     const inputElements = table.querySelectorAll("input");
-    
-//     let allInputsValid = true;
-
-//     inputElements.forEach(function(inputElement) {
-//         if (inputElement.value.trim() === '' || isNaN(inputElement.value)) {
-//             allInputsValid = false;
-//             inputElement.classList.add("invalid-input");
-//         } else {
-//             inputElement.classList.remove("invalid-input");
-//         }
-//     });
-
-//     if (allInputsValid) {
-//         if(document.getElementById("avg-cd").querySelector("input").value >= 0.95 || document.getElementById("avg-cd").querySelector("input").value <= 0.99){
-//             alert("Congratulations! You have successfully completed the experiment.");
-//         }
-//     } else {
-//         alert("Please Fill all input fields or Enter valid values in all input fields.");
-//     }
-// }
-
-
-
-
-
-
-
-

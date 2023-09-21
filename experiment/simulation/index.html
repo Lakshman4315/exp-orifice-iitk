@@ -293,7 +293,7 @@
 						<ellipse id="Tank_Empty_End" class="st7" cx="691.5" cy="578.5" rx="9.8" ry="3"/>
 						<polygon id="Tank_Water_Back" class="st7" points="245.1,508.1 587.9,508.1 587.9,508.1 245.1,508.1"/>
 						<g>
-							<polygon class="st1" points="590.1,322.1 590.1,507.5 531.2,576.7 531.2,391.3 	"/>
+							<polygon class="st1" points="590.1,322.1 590.1,507.5 531.2,576.7 531.2,391.3 "/>
 						</g>
 						<g id="Tank_Empty_Control">
 							<g>
@@ -341,7 +341,9 @@
 								</g>
 							</g>
 						</g>
-						<polygon id="Tank_Water_Left" class="st7" points="245.2,506.9 187.2,577.5 187.2,577.5 244.8,506.9 " />
+						<g translate="scale(1,-1)">
+							<polygon id="Tank_Water_Left" class="st7" points="250.2,506.9 195.2,577.5 195.2,577.5 250.2,506.9 " />
+						</g>
 						<g>
 							<g>
 								
@@ -393,14 +395,19 @@
 						</g>
 						<path class="st17" d="M832.4,163.1H631.6c-12.2,0-22.2-9.9-22.2-22.2v-23.4c0-12.2,9.9-22.2,22.2-22.2h200.8
 							c12.2,0,22.2,9.9,22.2,22.2v23.4C854.5,153.2,844.6,163.1,832.4,163.1z"/>
-						<text id="manometer-text" transform="matrix(0.9887 0 0 1 615.4014 142.457)" class="st18 st20">0 mm Hg</text>
+						<text transform="matrix(0.9985 0 0 1 610 480)" style="font-size: 30px;  " >Gate Valve</text>
+						<text x="860" y="250" style="font-size: 30px;">
+							<tspan x="860" dy="1.2em">Flow Rate</tspan>
+							<tspan x="880" dy="1.2em">Valve</tspan>
+						</text>
+						<text id="manometer-text" transform="matrix(0.9887 0 0 1 630.4014 142.457)" class="st18 st20">0 mm Hg</text>
 						<text transform="matrix(1.0432 0 0 1 1036.8877 74.6123)" class="st21 st22 st23"> </text>
 						<text transform="matrix(1.0432 0 0 1 1074.4434 74.6123)" class="st21 st22">Valve </text>
 						<text transform="matrix(1.0432 0 0 1 1036.8877 113.0117)" class="st21 st22">Positioning</text>
 						<text transform="matrix(1.0397 0 0 1 588.9023 59.002)" class="st21 st22">Manometer Reading</text>
 						<text transform="matrix(1.0397 0 0 1 89.9434 197.7368)" class="st21 st22">Timer</text>
-						<text transform="matrix(0.945 0 0 1 111.4229 275.1348)" class="st18 st19">00</text>
-						<text transform="matrix(0.945 0 0 1 175.8916 275.9883)" class="st18 st19">00</text>
+						<text id="timer-sec" transform="matrix(0.945 0 0 1 111.4229 275.1348)" class="st18 st19">00</text>
+						<text id="timer-ms" transform="matrix(0.945 0 0 1 175.8916 275.9883)" class="st18 st19">00</text>
 						<text transform="matrix(0.8527 0 0 1 53.3506 293.6123)" class="st18 st24">min</text>
 						<text transform="matrix(0.8527 0 0 1 121.7041 292.7588)" class="st18 st24">sec</text>
 						<text transform="matrix(0.8527 0 0 1 188.915 292.7588)" class="st18 st24">ms</text>
@@ -500,54 +507,50 @@
 						<text transform="matrix(0.9985 0 0 1 725.6514 261.1934)" class="st18 st32">mm Hg</text>
 						<ellipse id="Venturimeter_Opening_2" class="st7" cx="650" cy="218.6" rx="4.3" ry="12.6"/>
 						<ellipse id="Venturimeter_Opening_1" class="st7" cx="830.1" cy="218.4" rx="3.5" ry="9.8"/>
-						<g>
-							<rect x="127.7" y="577.7" width="15.8" height="3.2"/>
-							<polyline points="143.5,573.3 151.6,579.3 143.5,585.3 	"/>
+						<g >
+							<rect id="arrow-rect" x="127.7" y="577.7" width="15.8" height="3.2"o />
+							<polyline id="arrow-pol" points="143.5,573.3 151.6,579.3 143.5,585.3 	"/>
 						</g>
-						<g>
-							<rect x="608.9" y="455.6" transform="matrix(0.4766 -0.8791 0.8791 0.4766 -76.1017 790.0103)" width="33.1" height="6.7"/>
-							<polyline points="628.6,479.5 609.5,488.4 606.5,467.5 	"/>
+
+						<g id="svg-container-1">
+							<g class="arrow-1"  opacity="0">
+								<rect x="1012.9" y="356.8" class="st33" width="3.2" height="15.8"/>
+								<polyline class="st33" points="1008.5,356.8 1014.5,348.6 1020.5,356.8 	"/>
+							</g>
+							<g class="arrow-1"  opacity="0">
+								<rect x="1012.9" y="273.8" class="st33" width="3.2" height="15.8"/>
+								<polyline class="st33" points="1008.5,273.8 1014.5,265.6 1020.5,273.8 	"/>
+							</g>
+							<g class="arrow-1"  opacity="0">
+								<rect x="545" y="216.5" class="st33" width="15.8" height="3.2"/>
+								<polyline class="st33" points="545.1,224.1 536.9,218.1 545.1,212 	"/>
+							</g>
+							<g class="arrow-1"  opacity="0">
+								<rect x="866.4" y="216.1" class="st33" width="15.8" height="3.2"/>
+								<polyline class="st33" points="866.4,223.7 858.2,217.7 866.4,211.7 	"/>
+							</g>
+							<g class="arrow-1"  opacity="0">
+								<rect x="761.2" y="216.1" class="st33" width="15.8" height="3.2"/>
+								<polyline class="st33" points="761.2,223.7 753,217.7 761.2,211.7 	"/>
+							</g>
+							<g class="arrow-1"  opacity="0">
+								<rect x="680.3" y="216.1" class="st33" width="15.8" height="3.2"/>
+								<polyline class="st33" points="680.3,223.7 672.1,217.7 680.3,211.7 	"/>
+							</g>
+							<g class="arrow-1"  opacity="0">
+								<rect x="462" y="216.5" class="st33" width="15.8" height="3.2"/>
+								<polyline class="st33" points="462.1,224.1 453.9,218.1 462.1,212 	"/>
+							</g>
+							<g class="arrow-1"  opacity="0">
+								<rect x="379" y="216.5" class="st33" width="15.8" height="3.2"/>
+								<polyline class="st33" points="379.1,224.1 370.9,218.1 379.1,212 	"/>
+							</g>
+							<g class="arrow-1"  opacity="0">
+								<rect x="281.5" y="270.8" class="st33" width="3.2" height="15.8"/>
+								<polyline class="st33" points="289,286.5 283,294.7 277,286.5 	"/>
+							</g>
 						</g>
-						<g>
-							<rect x="962.2" y="138.6" transform="matrix(0.4829 -0.8757 0.8757 0.4829 381.8508 930.4647)" width="33.1" height="6.7"/>
-							<polyline points="981.8,162.5 962.6,171.3 959.8,150.4 	"/>
-						</g>
-						<g>
-							<rect x="1012.9" y="356.8" class="st33" width="3.2" height="15.8"/>
-							<polyline class="st33" points="1008.5,356.8 1014.5,348.6 1020.5,356.8 	"/>
-						</g>
-						<g>
-							<rect x="1012.9" y="273.8" class="st33" width="3.2" height="15.8"/>
-							<polyline class="st33" points="1008.5,273.8 1014.5,265.6 1020.5,273.8 	"/>
-						</g>
-						<g>
-							<rect x="545" y="216.5" class="st33" width="15.8" height="3.2"/>
-							<polyline class="st33" points="545.1,224.1 536.9,218.1 545.1,212 	"/>
-						</g>
-						<g>
-							<rect x="866.4" y="216.1" class="st33" width="15.8" height="3.2"/>
-							<polyline class="st33" points="866.4,223.7 858.2,217.7 866.4,211.7 	"/>
-						</g>
-						<g>
-							<rect x="761.2" y="216.1" class="st33" width="15.8" height="3.2"/>
-							<polyline class="st33" points="761.2,223.7 753,217.7 761.2,211.7 	"/>
-						</g>
-						<g>
-							<rect x="680.3" y="216.1" class="st33" width="15.8" height="3.2"/>
-							<polyline class="st33" points="680.3,223.7 672.1,217.7 680.3,211.7 	"/>
-						</g>
-						<g>
-							<rect x="462" y="216.5" class="st33" width="15.8" height="3.2"/>
-							<polyline class="st33" points="462.1,224.1 453.9,218.1 462.1,212 	"/>
-						</g>
-						<g>
-							<rect x="379" y="216.5" class="st33" width="15.8" height="3.2"/>
-							<polyline class="st33" points="379.1,224.1 370.9,218.1 379.1,212 	"/>
-						</g>
-						<g>
-							<rect x="281.5" y="270.8" class="st33" width="3.2" height="15.8"/>
-							<polyline class="st33" points="289,286.5 283,294.7 277,286.5 	"/>
-						</g>
+
 						<rect x="681.8" y="232.6" class="st34" width="12.5" height="4.4"/>
 						<rect x="765" y="232.6" class="st34" width="12" height="4.1"/>
 						<g id="Motor">
@@ -617,12 +620,24 @@
 
 							<button class="item2" type="button"  style="width:100%; border: solid #080808 3px;" id="enable" onclick="power()"> POWER ON </button>
 
-							<div class="item3" style="font-size: 20px; font-weight: bold;">
+							<div class="item3" style="font-size: 20px; font-weight: bold; display: flex; flex-direction: row; gap: 20px; align-content: center; justify-content: center; align-self: auto; ">
 								Valve Positioning
-								<input id="flow-rate-slider" name ="slider" min="0" max="3" type="range" step="1" value="0" disabled="True" onchange="updateValvePositioning()" >
+								<div style="display: flex; flex-direction: column">
+									
+									<input id="flow-rate-slider" list="markers" name ="slider" min="0" max="3" type="range" step="1" value="0" disabled="True" onchange="updateValvePositioning()" >
+								
+									<datalist id="values">
+										<option value="0" label="0"></option>
+										<option value="1" label="1"></option>
+										<option value="2" label="2"></option>
+										<option value="3" label="3"></option>
+									</datalist>
+
+								</div>
+								  
 							</div>
 
-							<button class="itemx" type="button"  style="width:100%; border: solid #080808 3px;" id="purze" disabled="True" onclick="purzeAction()"> CLOSE PURGE VALVE </button>
+							<button class="itemx" type="button"  style="width:100%; border: solid #080808 3px;" id="purze" disabled="True" onclick="purzeAction()"> CLOSE GATE VALVE </button>
 
 
 							<div class="item6">
@@ -781,11 +796,11 @@
 										<th>S.No:</th>
 										<th>Manometer reading <br> in mm of Hg <br>(H)</th>
 										<th>Time taken for collecting <br> 10 cm rise of  water<br>in collecting tank <br>(sec)</th>
-										<th>Q_Theoritical 
+										<th>Q<sub>th</sub>  x 10<sup>-4</sup>
 			<br>
 											(m<sup>3</sup>/s)
 											</th>
-										<th>Q_act <br>
+										<th>Q<sub>act</sub>  x 10<sup>-4</sup> <br>
 											(m<sup>3</sup>/s)
 											</th>
 										<th>C<sub>d</sub>
@@ -796,36 +811,85 @@
 									</tr>
 									<tr>
 										<td>1.</td>
-										<td><input type="text"></td>
-										<td><input type="text"></td>
-										<td><input type="text"></td>
-										<td><input type="text"></td>
-										<td><input type="text" disabled="True"></td>
+										<td id="H1"><input type="text"></td>
+										<td id="T1"><input type="text"></td>
+										<td id="Qt1"><input type="text"></td>
+										<td id="Qact1"><input type="text"></td>
+										<td id="Cd1"><input type="text" disabled="True"></td>
 										<td  id="avg-cd" rowspan="3"><input type="text" disabled="True"></td>	
 									</tr>
 									<tr>
 										<td>2.</td>
-										<td><input type="text"></td>
-										<td><input type="text"></td>
-										<td><input type="text"></td>
-										<td><input type="text"></td>
-										<td><input type="text" disabled="True"></td>
+										<td id="H2"><input type="text"></td>
+										<td id="T2"><input type="text"></td>
+										<td id="Qt2"><input type="text"></td>
+										<td id="Qact2"><input type="text"></td>
+										<td id="Cd2"><input type="text" disabled="True"></td>
 									</tr>
 									<tr>
 										<td>3.</td>
-										<td><input type="text"></td>
-										<td><input type="text"></td>
-										<td><input type="text"></td>
-										<td><input type="text"></td>
-										<td><input type="text" disabled="True"></td>
+										<td id="H3"><input type="text"></td>
+										<td id="T3"><input type="text"></td>
+										<td id="Qt3"><input type="text"></td>
+										<td id="Qact3"><input type="text"></td>
+										<td id="Cd3"><input type="text" disabled="True"></td>
 									</tr>
 								</table>
 
-								<button type="button" class="calculate-button" style="border: solid black 3px; border-radius: 5px; padding: 5px;" onclick="checkYourResult()" >Check Your Result</button>
+								<table id="tab1" class="result-table" border="1" style="display: none;">
+									<tr>
+										<th colspan="7" style="font-size: 25px; font-weight: bolder; background-color: #634380;color: white;">Observation Table</th>
+									</tr>
+									<tr>
+										<th>S.No:</th>
+										<th>Manometer reading <br> in mm of Hg <br>(H)</th>
+										<th>Time taken for collecting <br> 10 cm rise of  water<br>in collecting tank <br>(sec)</th>
+										<th>Q<sub>th</sub>  x 10<sup>-4</sup> 
+			<br>
+											(m<sup>3</sup>/s)
+											</th>
+										<th>Q<sub>act</sub>  x 10<sup>-4</sup> <br>
+											(m<sup>3</sup>/s)
+											</th>
+										<th>C<sub>d</sub>
+										
+										</th>
+										<th >Avg. C<sub>d</sub>
+											</th>
+									</tr>
+									<tr>
+										<td>1.</td>
+										<td id="H1"><input type="number" disabled="true" value="102"></td>
+										<td id="T1"><input type="number" disabled="true" value="28.91"></td>
+										<td id="Qt1"><input type="number" disabled="true" value="6.36"></td>
+										<td id="Qact1"><input type="number" disabled="true" value="4.15"></td>
+										<td id="Cd1"><input type="number" disabled="true" value="0.652"></td>
+										<td  id="avg-cd" rowspan="3"><input type="number" disabled="true" value="0.648"></td>	
+									</tr>
+									<tr>
+										<td>2.</td>
+										<td id="H2"><input type="number" disabled="true" value="146"></td>
+										<td id="T2"><input type="number" disabled="true" value="23.89"></td>
+										<td id="Qt2"><input type="number" disabled="true" value="7.61"></td>
+										<td id="Qact2"><input type="number" disabled="true" value="5.02"></td>
+										<td id="Cd2"><input type="number" disabled="true" value="0.659"></td>
+									</tr>
+									<tr>
+										<td>3.</td>
+										<td id="H3"><input type="number" disabled="true" value="210"></td>
+										<td id="T3"><input type="number" disabled="true" value="20.72"></td>
+										<td id="Qt3"><input type="number" disabled="true" value="9.12"></td>
+										<td id="Qact3"><input type="number" disabled="true" value="5.79"></td>
+										<td id="Cd3"><input type="number" disabled="true" value="0.634"></td>
+									</tr>
+								</table>
+
+								<button type="button" class="checkYourResult" style="border: solid black 3px; border-radius: 5px; padding: 5px;" onclick="calculate()" >Calculate</button>
+
+								<button id="check-button" type="button" class="checkYourResult" style="border: solid black 3px; border-radius: 5px; padding: 5px;" disabled="true" onclick="checkYourResult()" >Check Your Result</button>
 
 								<div  style="margin:auto; display: flex; gap: 40px ;">
 									<button style=" margin-bottom: 40px; border: solid black 3px; border-radius: 5px; padding: 5px; " onclick="window.print()">Print this page</button>
-									<!-- <button style= "margin-bottom: 40px; border: solid black 3px; border-radius: 5px; padding: 5px; " >Save the data</button> -->
 									
 								</div>
 
@@ -834,16 +898,11 @@
 
 
 						</div>
-					</div> 
+					</div>
 
-						
-
-
-						
-
-						
-
-				<!-- Add JS at the bottom of HTML file --> 
-					<script src="./js/main.js"></script>
+				<!-- Add JS at the bottom of HTML file -->
+				<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+				<script src="./js/calculation.js"></script>
+				<script src="./js/main.js"></script>
 			</body>
 			</html>

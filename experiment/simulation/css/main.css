@@ -3,17 +3,47 @@
 *{
     box-sizing: border-box;
     margin: 0%;
-    
     padding: 0%;
 }
 
+@media print{
+    /* body,html{
+        width: 100%;
+        
+    }
+    .vendorListHeading th {
+        color: white !important;
+    } */
+    
+    /* body {
+        visibility: hidden;
+      } */
+    /* .item1 {
+        visibility: visible;
+        position: absolute;
+        left: 0;
+        top: 0;
+    } */
+    
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 
 html, body {
     align-self: center;
     align-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin:0;
     padding:0;
     font-weight: 400;
     overflow-x: hidden;
@@ -68,7 +98,7 @@ td{
 .sim{
     background-color: #f7eee0; 
     margin: 100px;
-    margin-top: 2px;
+    margin-top: 50px;
     /* width: 100%; */
     height: min-content;
     border-left: 25px solid ;
@@ -84,6 +114,7 @@ td{
     gap: 10px;
     padding: 20px;
     margin: 10px;
+    align-content: center;
 
     grid-template-areas: 
     "instruction-area instruction-area instruction-area instruction-area "
@@ -151,8 +182,34 @@ td{
 
 .flow-rate-slider{
     align-content: center;
+    /* outline: none; */
+    /* background: linear-gradient(to right, #ff5733 0%, #ff5733 33%, #f5d142 33%, #f5d142 66%, #2ecc71 66%, #2ecc71 100%); */
 }
 
+datalist {
+    display: flex;
+    flex-direction: colums;
+    justify-content: space-between;
+    writing-mode: horizontal-tb;
+    width: 200px;
+  }
+
+option {
+    padding: 0;
+  }
+  
+input[type="range"] {
+    width: 200px;
+    margin: 0;
+  }
+
+/* #markers option {
+    background-color: #3498db;
+    color: white;
+    border: 1px solid #2980b9;
+    text-align: center;
+    width: 33%;
+  } */
 
 .item4{
     align-content: center;
@@ -257,7 +314,7 @@ td{
 
 #enable{
     background-color: #ca2222;
-    padding: 5px;
+    padding: 35px;
     padding-top: 0px;
     padding-bottom: 0px;
     width: 80%;
@@ -270,7 +327,7 @@ td{
 
 #purze{
     background-color: #079bff;
-    padding: 10px;
+    padding: 10px 35px;
     border: 0px;
     height: 70%;
     border-radius: 5px;
@@ -365,12 +422,12 @@ input {
 
 
 
-/* .arrow-1{
+.arrow-1{
         animation-duration: 1s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in-out;
 
-    } */
+    }
     
 @keyframes arrowAnimation {
     0% {
@@ -380,7 +437,5 @@ input {
         opacity: 1;
     }
 }
-
-
 
 
