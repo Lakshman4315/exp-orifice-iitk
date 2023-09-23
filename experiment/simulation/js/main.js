@@ -66,7 +66,7 @@ function stopAnimation() {
 function power(){
     if(count==0){
         enableButton.style.backgroundColor="#4cae4c"
-        document.getElementById("steps").innerHTML="Please wait until the water reaches the  Gate valve."
+        document.getElementById("steps").innerHTML="Please wait until the water reaches the Flow Rate Valve."
         enableButton.textContent = "POWER OFF"
         count=1
 
@@ -294,7 +294,7 @@ function waterFlow6(){
 
       setTimeout(function(){
         waterFlow9()
-      }, 2000)
+      }, 2500)
     
 }
 
@@ -335,51 +335,6 @@ function waterFlow7(){
 
     }
 }
-
-
-
-//     function waterFlow6(){
-
-
-//         w5.style.opacity=1
-    
-    
-    
-//         w5.setAttribute("opacity", "1")
-    
-//         const animateElement = document.createElementNS("http://www.w3.org/2000/svg", "animate");
-//         animateElement.setAttribute("attributeName", "width");
-//         animateElement.setAttribute("from", "0");
-//         animateElement.setAttribute("to", "26.3");
-//         animateElement.setAttribute("dur", "4s");
-//         animateElement.setAttribute("fill","freeze");
-    
-//         w5.appendChild(animateElement)
-    
-//         const animateX = document.createElementNS("http://www.w3.org/2000/svg", "animate");
-//         animateX.setAttribute("attributeName", "x");
-//         animateX.setAttribute("from", "745.5");
-//         animateX.setAttribute("to", "719.2");
-//         animateX.setAttribute("dur", "4s");
-//         animateX.setAttribute("fill","freeze");
-    
-//         w5.appendChild(animateX)
-    
-//         animateElement.beginElement();
-//         animateX.beginElement();
-    
-    
-//         setTimeout(function() {
-//             waterFlow10()
-//           }, 2000);
-    
-    
-//         setTimeout(function() {
-//             w5.setAttribute("opacity", "1")
-//             waterFlow11()
-//           }, 4000);
-    
-//     }
     
     
 //     //manometer left water
@@ -515,7 +470,7 @@ function fillTankFront(){
     animateElement.setAttribute("attributeName", "height");
     animateElement.setAttribute("from", "0");
     animateElement.setAttribute("to", "110");
-    animateElement.setAttribute("dur","4s")
+    animateElement.setAttribute("dur","5s")
 
     animateElement.setAttribute("begin", "0s");
     animateElement.setAttribute("fill","freeze");
@@ -540,7 +495,7 @@ function waterTankBackFlow(y){
         // Use template literals to update the points attribute
         waterTankBack.setAttribute("points", `245.1,${y} 587.9,${y} 587.9,508.1 245.1,508.1 `);
         
-        setTimeout(() => waterTankBackFlow(y), 32.9);
+        setTimeout(() => waterTankBackFlow(y), 21.5);
     }
 }
 
@@ -553,7 +508,7 @@ function waterTankSideFlow(y1,y2){
         waterTankLeft.setAttribute("points", `245.1,516.1 190.1,586.7 190.1,${y1} 245.1,${y2}`);
 
         
-        setTimeout(() => waterTankSideFlow(y1, y2), 32.9);
+        setTimeout(() => waterTankSideFlow(y1, y2), 21.5);
     }
 
 }
@@ -582,7 +537,7 @@ function displayTimer(targetsec,targetms){
 
     if(valvePositioning.value==1){
         if(timerRunning){
-            milliseconds+=(52*(5/28));
+            milliseconds+=(90*(5/28));
             if(milliseconds >= (100)){
                 milliseconds -= 100;
                 seconds++;
@@ -600,7 +555,7 @@ function displayTimer(targetsec,targetms){
 
     if(valvePositioning.value==2){
         if(timerRunning){
-            milliseconds+=(30*(5/23));
+            milliseconds+=(55*(5/23));
             if(milliseconds >= (100)){
                 milliseconds -= 100;
                 seconds++;
@@ -618,7 +573,7 @@ function displayTimer(targetsec,targetms){
 
     if(valvePositioning.value==3){
         if(timerRunning){
-            milliseconds+=(25*(5/20));
+            milliseconds+=(60*(5/20));
             if(milliseconds >= (100)){
                 milliseconds -= 100;
                 seconds++;
@@ -695,14 +650,10 @@ function updateValvePositioning()  {
 
 function reset(){
     w5.setAttribute("opacity","0")
-    // w6.style.opacity="0"
     w9.setAttribute("height","0")
     w8.setAttribute("opacity","0")
     w6.setAttribute("height","0")
     w7.setAttribute("height","0")
-    // w10.setAttribute("height","0")
-    // w11.setAttribute("opacity","0")
-    // w12.setAttribute("height","0")
     
     arrowRect.setAttribute("y","577.7")
     arrowPol.setAttribute("points","143.5,573.3 151.6,579.3 143.5,585.3 ")
@@ -720,8 +671,7 @@ function arrowMovement(){
     if (currentY > 467.7) {
         currentY -= 1;
         arrowRect.setAttribute("y", currentY);
-    
-        setTimeout(arrowMovement, 32.9); 
+        setTimeout(arrowMovement, 21.5); 
     }
 }
 
@@ -732,7 +682,7 @@ function arrowMovement2(y1,y2,y3){
         y2-=1;
         y3-=1;
         arrowPol.setAttribute("points", `136.4,${y1} 144.5,${y2} 136.4,${y3} `);
-        setTimeout(() => arrowMovement2(y1,y2,y3), 32.9);
+        setTimeout(() => arrowMovement2(y1,y2,y3), 21.5);
     }
 
 }
