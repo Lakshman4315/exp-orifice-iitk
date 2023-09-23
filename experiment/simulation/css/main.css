@@ -6,26 +6,6 @@
     padding: 0%;
 }
 
-@media print{
-    /* body,html{
-        width: 100%;
-        
-    }
-    .vendorListHeading th {
-        color: white !important;
-    } */
-    
-    /* body {
-        visibility: hidden;
-      } */
-    /* .item1 {
-        visibility: visible;
-        position: absolute;
-        left: 0;
-        top: 0;
-    } */
-    
-}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
