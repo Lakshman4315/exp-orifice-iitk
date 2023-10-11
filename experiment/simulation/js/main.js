@@ -42,12 +42,8 @@ var animationTimeouts = [];
 
 
 function displayArrows() {
-    var delay = 0;
     svgElements1.forEach(function (element) {
-        setTimeout(function () {
-            element.style.animation = "arrowAnimation 1s infinite";
-        }, delay);
-        delay += 1000;
+        element.style.animation = "arrowAnimation 1s infinite";       
     });
 }
 
@@ -55,7 +51,8 @@ function displayArrows() {
 function stopAnimation() {
 
     svgElements1.forEach(function (element) {
-        element.style.animation = "none"; // Reset the animation
+        element.setAttribute("opacity","0")
+        element.style.animation = "none";
     });
     
  }
@@ -80,62 +77,57 @@ function power(){
     }
 }
 
-// purge action
+function resetAll(){
+    valvePositioningText.textContent = '0'
+    valvePositioning.value = 0
 
-valvePositioning.addEventListener("change", updateValvePositioning);
+    w1.setAttribute("opacity","0")
+    w2.setAttribute("width","0")
+    w2.setAttribute("opacity","0")
+    w3.setAttribute("opacity","0")
+    w4.setAttribute("width","0")
+    w4.setAttribute("opacity","0")
 
-// function waterFlow1(){
-//     const animateElement = document.createElementNS("http://www.w3.org/2000/svg", "animate");
-//     animateElement.setAttribute("attributeName", "height");
-//     animateElement.setAttribute("from", "0");
-//     animateElement.setAttribute("to", "56.8");
-//     animateElement.setAttribute("dur", "3s");
-//     animateElement.setAttribute("begin", "0s");
-//     animateElement.setAttribute("fill","freeze");
-//     animateElement.setAttribute("values", "56.8;0");
-//     animateElement.setAttribute("keyTimes", "0;1");
+    clearTimeout(timeoutId4)
+    valvePositioning.disabled = true
+
+    w5.setAttribute("opacity", "0")
+    clearTimeout(timeoutId5)
+    w6.style.opacity=0
+    w7.setAttribute("height","0")
+    w8.setAttribute("opacity", "0")
+    w10.setAttribute("height","0")
+    w9.setAttribute("opacity", "0")
     
+    w11.setAttribute("width","0")
+    w11.setAttribute("opacity","0")
+    w12.setAttribute("height","0")
 
-//     w1.appendChild(animateElement)
+    purzeButton.disabled= true;
 
-//     const animateOpacity = document.createElementNS("http://www.w3.org/2000/svg", "animate");
-//     animateOpacity.setAttribute("attributeName", "opacity");
-//     animateOpacity.setAttribute("from", "1");
-//     animateOpacity.setAttribute("to", "1");
-//     animateOpacity.setAttribute("dur", "3s");
-//     animateOpacity.setAttribute("begin", "0s");
-//     animateOpacity.setAttribute("values", "0;1");
-//     animateOpacity.setAttribute("keyTimes", "0;1");
-//     w1.appendChild(animateOpacity);
+    stopAnimation()
 
-//     animateElement.addEventListener("input", function(){
-//         const currentHeight=parseFloat(w1.getAttribute("height"));
-//         if (currentHeight <= 0.1) {
-//             w1.setAttribute("opacity", "1");
-//         }
-//     });
-//     animateElement.beginElement();
-//     animateOpacity.beginElement();
+    arrowRect.setAttribute("y","585.8")
+    arrowPol.setAttribute("points","136.4,581.4 144.5,587.4 136.4,593.4 ")
+    waterTankBack.setAttribute("points","238,516.2 580.8,516.2 580.8,516.2 238,516.2")
+    waterTankFront.setAttribute("opacity","0")
+    waterTankLeft.setAttribute("points","238,516.2 580.8,516.2 580.8,516.2 238,516.2")
+    waterTankBase.setAttribute("opacity","0")
 
-//     setTimeout(function() {
-//         w1.setAttribute("opacity","1")
-//         waterFlow3()
+    manometerText.textContent = "0 mm Hg"
 
-//       }, 2500);
-// }
-// function waterFlow2(){
+    shouldStop=true
+    
+    resetTimer()
+    
+    w13.setAttribute("width","0")
+    w14.setAttribute("height","0")
 
-//     var currentwidth=parseFloat(w2.getAttribute("width"))
-//     if(currentwidth<51.7){
-//         currentwidth+=3;
-//         w2.setAttribute("width",currentwidth);
-//         setTimeout(waterFlow2, 100);
-//         if(currentwidth == 54){
-//             waterFlow3()
-//         }
-//     }
-// }
+}
 
+
+// purge action
+valvePositioning.addEventListener("change", updateValvePositioning);
 
 function waterFlow3(){
     w2.setAttribute("opacity", "1")
@@ -178,17 +170,6 @@ function waterFlow3(){
         waterFlow4()
     },5000);
 }
-
-
-// animateElement.addEventListener("input",function(){
-// const currentHeight=parseFloat(w3.getAttribute("height"));
-// if(currentHeight>=263.4){
-//     w3.setAttribute("opacity","1");
-// }
-
-// });
-
-
 
 function waterFlow4(){
 
@@ -276,20 +257,13 @@ function waterFlow6(){
     animateElement.beginElement();
     animateX.beginElement();
 
-    // if(w5.getAttribute("width") == 30){
-        
-    // }
-
     setTimeout(function() {
-        
-        // console.log(waterFlow7()
         waterFlow7()
       }, 500);
 
       setTimeout(function() {
         
         console.log(waterFlow8())
-        // waterFlow6()
       }, 1500);
 
       setTimeout(function(){
@@ -305,15 +279,11 @@ function waterFlow7(){
     
     var currentHeight = parseFloat(w6.getAttribute("height"))
     if (currentHeight < 120) {
-        // Increment the current height by 2
         currentHeight += 3;
-        // Set the new height to the element
         w6.setAttribute("height", currentHeight);
-        // Call the function recursively to continue increasing the height
         setTimeout(waterFlow7, 100); 
 
         if(currentHeight > 100){
-
             var increament = 38.2
             var currentHeight_m = 32.2
 
@@ -399,11 +369,8 @@ function waterFlow13(){
         return;
     }else{
         if (currentwidth < 87.2) {
-            // Increment the current height by 2
             currentwidth += 3;
-            // Set the new height to the element
             w10.setAttribute("width", currentwidth);
-            // Call the function recursively to continue increasing the height
             setTimeout(waterFlow13, 100); 
         }
         setTimeout(function() {
@@ -444,25 +411,9 @@ function waterFlow14(){
     
 
     
-    
-// }
-
-// function waterFlow12(){
-//     var currentHeight = parseFloat(w12.getAttribute("height"))
-    
-//     if (currentHeight < 297.1) {
-//         currentHeight += 3;
-//         w9.setAttribute("height", currentHeight);
-//         setTimeout(waterFlow12, 100); 
-//     }
-//     setTimeout(function() {
-//         waterTankBase.setAttribute("opacity","1")
-//         waterFlow13()
-//       }, 5000);
-// }
+  
 
 function fillTankFront(){
-    purzeButton.disabled = true;
 
     waterTankFront.setAttribute("opacity", "1")
 
@@ -470,7 +421,7 @@ function fillTankFront(){
     animateElement.setAttribute("attributeName", "height");
     animateElement.setAttribute("from", "0");
     animateElement.setAttribute("to", "110");
-    animateElement.setAttribute("dur","5s")
+    animateElement.setAttribute("dur","3.5s")
 
     animateElement.setAttribute("begin", "0s");
     animateElement.setAttribute("fill","freeze");
@@ -483,31 +434,25 @@ function fillTankFront(){
     setTimeout(function() {
 
         document.getElementById("steps").innerHTML = "Take note of the current time on the timer, and then readjust the gate valve value using the slider for additional measurements. Finally, use the provided data to calculate Qact, Qth, and Cd."
-        purzeButton.disabled = false;
-      }, 1000);
+        valvePositioning.disabled=false
+      }, 3500);
 
 }   
         
 function waterTankBackFlow(y){
     if (y > 399) {
         y -= 1;
-
-        // Use template literals to update the points attribute
         waterTankBack.setAttribute("points", `245.1,${y} 587.9,${y} 587.9,508.1 245.1,508.1 `);
-        
         setTimeout(() => waterTankBackFlow(y), 21.5);
     }
 }
 
 function waterTankSideFlow(y1,y2){
 
-    if (y1 > 467.5) {
+    if (y1 > 469) {
         y1 -= 1;
         y2-=1;
-        // Use template literals to update the points attribute
-        waterTankLeft.setAttribute("points", `245.1,516.1 190.1,586.7 190.1,${y1} 245.1,${y2}`);
-
-        
+        waterTankLeft.setAttribute("points", `245.1,508.1 190.1,578.7 190.1,${y1} 245.1,${y2}`);
         setTimeout(() => waterTankSideFlow(y1, y2), 21.5);
     }
 
@@ -537,7 +482,7 @@ function displayTimer(targetsec,targetms){
 
     if(valvePositioning.value==1){
         if(timerRunning){
-            milliseconds+=(90*(5/28));
+            milliseconds+=(65*(5/28));
             if(milliseconds >= (100)){
                 milliseconds -= 100;
                 seconds++;
@@ -555,7 +500,7 @@ function displayTimer(targetsec,targetms){
 
     if(valvePositioning.value==2){
         if(timerRunning){
-            milliseconds+=(55*(5/23));
+            milliseconds+=(45*(5/23));
             if(milliseconds >= (100)){
                 milliseconds -= 100;
                 seconds++;
@@ -573,7 +518,7 @@ function displayTimer(targetsec,targetms){
 
     if(valvePositioning.value==3){
         if(timerRunning){
-            milliseconds+=(60*(5/20));
+            milliseconds+=(35*(5/20));
             if(milliseconds >= (100)){
                 milliseconds -= 100;
                 seconds++;
@@ -629,10 +574,10 @@ function purzeAction(){
     fillTankFront()
     waterTankBackFlow(508.1)
     waterTankSideFlow(577.5,506.9)
-    valvePositioning.disabled= false
-
     arrowMovement()
     arrowMovement2(573.3,579.3,585.3 )
+
+    purzeButton.disabled= true
 }
 
 
@@ -642,10 +587,17 @@ function updateValvePositioning()  {
     displayArrows()
     reset()
     resetTimer()
+
     var selectedValue = valvePositioning.value;
+    if(selectedValue == 0){
+        document.getElementById("steps").innerHTML = "Select the value of Valve Positioning greater than 0!"
+        w4.setAttribute("opacity","0")
+    }else{
+        waterFlow5() 
+        valvePositioning.disabled = true;
+    }
+    
     valvePositioningText.textContent = selectedValue;
-    waterFlow5() 
-    valvePositioning.disabled = true;
 }
 
 function reset(){
