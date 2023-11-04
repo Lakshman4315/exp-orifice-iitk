@@ -44,41 +44,41 @@ function checkYourResult() {
 
     let flag = true
 
-    if(h1.querySelector("input").value!=102){
+    if(h1.querySelector("input").value!=37){
         h1.querySelector("input").style.color = "red"
         flag= false
     }
 
-    if(h2.querySelector("input").value!=146){
+    if(h2.querySelector("input").value!=50){
         h2.querySelector("input").style.color = "red"
         flag= false
   
     }
 
-    if(h3.querySelector("input").value!=210){
+    if(h3.querySelector("input").value!=72){
         h3.querySelector("input").style.color = "red"
         flag= false
         
     }
 
-    if(t1.querySelector("input").value!=28.91){
+    if(t1.querySelector("input").value!=35){
         t1.querySelector("input").style.color = "red"
         flag= false
         
     }
 
-    if(t2.querySelector("input").value!=23.89){
+    if(t2.querySelector("input").value!=27.74){
         t2.querySelector("input").style.color = "red"
         flag= false
     }
 
 
-    if(t3.querySelector("input").value!=20.72){
+    if(t3.querySelector("input").value!=24){
         t3.querySelector("input").style.color = "red"
         flag= false
     }
 
-    if(qact1.querySelector("input").value> 4.067 && qact1.querySelector("input").value< 4.233){
+    if(qact1.querySelector("input").value> 3.249 && qact1.querySelector("input").value< 3.59){
         qact1.querySelector("input").style.color = "black"
         flag= true
     }else{
@@ -86,7 +86,7 @@ function checkYourResult() {
         flag= false
     }
 
-    if(qact2.querySelector("input").value >4.9196  && qact2.querySelector("input").value<5.1204){
+    if(qact2.querySelector("input").value >4.104  && qact2.querySelector("input").value<4.536){
         qact2.querySelector("input").style.color = "black"
         flag= true
     }else{
@@ -94,7 +94,7 @@ function checkYourResult() {
         flag= false
     }
     
-    if(qact3.querySelector("input").value > 5.6742 && qact3.querySelector("input").value< 5.9058){
+    if(qact3.querySelector("input").value > 4.75 && qact3.querySelector("input").value< 5.25){
         qact3.querySelector("input").style.color = "black"
         flag= true
     }else{
@@ -103,7 +103,7 @@ function checkYourResult() {
     }
 
 
-    if(qt1.querySelector("input").value>6.2328 && qt1.querySelector("input").value<6.4872){
+    if(qt1.querySelector("input").value>3.65 && qt1.querySelector("input").value<3.99){
         qt1.querySelector("input").style.color = "black"
         flag= true
     }else{
@@ -111,7 +111,7 @@ function checkYourResult() {
         flag= false
     }
 
-    if(qt2.querySelector("input").value>7.4578 && qt2.querySelector("input").value<7.7622){
+    if(qt2.querySelector("input").value>4.22 && qt2.querySelector("input").value<4.66){
         qt2.querySelector("input").style.color = "black"
         flag= true
     }else{
@@ -119,7 +119,7 @@ function checkYourResult() {
         flag= false
     }
 
-    if(qt3.querySelector("input").value>8.9376 && qt3.querySelector("input").value<9.3024){
+    if(qt3.querySelector("input").value>5.073 && qt3.querySelector("input").value<5.607){
         qt3.querySelector("input").style.color = "black"
         flag= true
     }else{
@@ -128,7 +128,7 @@ function checkYourResult() {
     }
 
 
-    if(cd1.querySelector("input").value>0.639 && cd1.querySelector("input").value<0.665){
+    if(cd1.querySelector("input").value>0.850 && cd1.querySelector("input").value<0.94){
         cd1.querySelector("input").style.color = "black"
         flag= true
     }else{
@@ -136,7 +136,7 @@ function checkYourResult() {
         flag= false
     }
 
-    if(cd2.querySelector("input").value>0.646 && cd2.querySelector("input").value<0.672){
+    if(cd2.querySelector("input").value>0.924 && cd2.querySelector("input").value<1){
         cd2.querySelector("input").style.color = "black"
         flag= true
     }else{
@@ -144,7 +144,7 @@ function checkYourResult() {
         flag= false
     }
 
-    if(cd3.querySelector("input").value>0.621 && cd3.querySelector("input").value<0.647){
+    if(cd3.querySelector("input").value>0.89 && cd3.querySelector("input").value<0.983){
         cd3.querySelector("input").style.color = "black"
         flag= true
     }else{
@@ -152,7 +152,7 @@ function checkYourResult() {
         flag= false
     }
 
-    if(cdAvg.querySelector("input").value >0.60 && cdAvg.querySelector("input").value <0.80){
+    if(cdAvg.querySelector("input").value >0.90 && cdAvg.querySelector("input").value <0.99){
         console.log(cdAvg.querySelector("input"))
         cdAvg.querySelector("input").style.color = "black"
         if(flag){
@@ -176,5 +176,35 @@ function checkYourResult() {
         alert("Congratulations! You have successfully completed the experiment.");
     }else{
         document.querySelector(".result-table").style.display = "flex"
+    }
+}
+
+
+function saveData() {
+    var table = document.getElementById("table-data");
+    var rows = table.getElementsByTagName("tr");
+    var csvContent = [];
+
+    for (var i = 0; i < rows.length; i++) {
+        var row = [], cols = rows[i].querySelectorAll("td, th");
+
+        for (var j = 0; j < cols.length; j++) {
+            row.push(cols[j].innerText);
+        }
+
+        csvContent.push(row.join(","));
+    }
+
+    var csvString = csvContent.join("\n");
+    var blob = new Blob([csvString], { type: "text/csv;charset=utf-8;" });
+    var link = document.createElement("a");
+
+    if (link.download !== undefined) {
+        var url = URL.createObjectURL(blob);
+        link.setAttribute("href", url);
+        link.setAttribute("download", "table.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 }

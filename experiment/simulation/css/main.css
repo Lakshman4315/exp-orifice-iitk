@@ -6,7 +6,6 @@
     padding: 0%;
 }
 
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -20,13 +19,13 @@ input[type=number] {
 
 
 html, body {
-    align-self: center;
-    align-content: center;
-    align-items: center;
     margin:0;
     padding:0;
     font-weight: 400;
     overflow-x: hidden;
+    display: flex;
+    justify-content: space-around;
+        
 }
 
 .flex{
@@ -58,9 +57,7 @@ input{
 
 table{
     margin: auto;
-    border-left: 20px solid ;
-    border-right: 20px solid ;
-    border-bottom: 20px solid ;
+    border: 2px solid;
     
 }
 
@@ -77,16 +74,16 @@ td{
 
 .sim{
     background-color: #f7eee0; 
-    margin: 100px;
-    margin-top: 50px;
-    /* width: 100%; */
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: min-content;
     height: min-content;
     border-left: 25px solid ;
     border-right: 25px solid ;
     border-bottom: 25px solid ;
     border-color: #634380;
     box-shadow: 5px 10px 8px #888888;
-    position: absolute;
+    position: relative;
 }
 
 .sim_table{
@@ -294,7 +291,7 @@ input[type="range"] {
 
 #enable{
     background-color: #ca2222;
-    padding: 35px;
+    padding: 45px;
     padding-top: 0px;
     padding-bottom: 0px;
     width: 80%;
@@ -307,7 +304,7 @@ input[type="range"] {
 
 #purze{
     background-color: #079bff;
-    padding: 10px 35px;
+    padding: 10px;
     border: 0px;
     height: 70%;
     border-radius: 5px;
@@ -419,3 +416,11 @@ input {
 }
 
 
+
+.paused-animation {
+    animation-play-state: paused;
+  }
+
+/* @media screen and (max-width : 1330px){
+    
+} */
